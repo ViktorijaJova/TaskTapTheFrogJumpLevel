@@ -42,5 +42,18 @@ public class Timer : MonoBehaviour
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    private float clock = 0;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Clock")
+        {
+            Destroy(collision.gameObject);
+            timeRemaining += 5;
+
+
+        }
+    }
 }
 

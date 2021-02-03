@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,10 +14,19 @@ public class FrogScript : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
-
             rb.MovePosition(rb.position + Vector2.right* leftarrowmovment);
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
             rb.MovePosition(rb.position + Vector2.right *rightarrowmovment);
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag.Contains("Player"))
+        {
+            Destroy(gameObject);
+            
+        }
+
     }
 
 }
